@@ -8,11 +8,11 @@ const ingredients = [
 ];
 
 const titleEl = [];
-for ( let k = 0; k < ingredients.length; k += 1 ) {
-  titleEl[k] = document.createElement('li');
-  titleEl[k].classList.add('item');
-  titleEl[k].textContent = ingredients[k];
-  console.log(titleEl[k]);
+for ( let i = 0; i < ingredients.length; i += 1 ) {
+  titleEl[i] = document.createElement('li');
+  titleEl[i].classList.add('item');
+  titleEl[i].textContent = ingredients[i];
+  console.log(titleEl[i]);
 };      
 
 titleEl.forEach ( item => {

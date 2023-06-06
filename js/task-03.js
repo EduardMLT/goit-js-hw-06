@@ -13,30 +13,17 @@ const images = [
   },
 ];
 
-const titleEl = [];
-for ( let k = 0; k < images.length; k += 1 ) {
-   titleEl[k] = document.querySelector('.gallery');
-   titleEl[k].insertAdjacentHTML('afterBegin','<li></li>');
 
-   let liEl = document.querySelector('li');
-   liEl.classList.add('block_task_03'); // добавив css
-   liEl.style.cssText = `
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       margin-left: auto;
-       margin-right: auto;
-       margin-bottom: 20px;
-  `;
+const gallery = document.querySelector('.gallery');
+  const galleryItems = ({ url, alt }) =>
+  `<li><img src="${url}" alt="${alt}" width = 320 height = 200></li>`;
+console.log(galleryItems);
+
+  const galleryMarkup = images.reduce(
+  (acc, item) => acc + galleryItems(item),
+  []
+  );
+
+gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
+
   
-   const imageEl = document.createElement('img');  
-   imageEl.src = images[k].url;
-   imageEl.alt = images[k].alt;
-   imageEl.width = 320;
-   imageEl.height = 200;
-  //  console.log('titleEl', titleEl[k]);
-   // console.log('imageEl', imageEl);
-   let img_in_li = document.querySelector('li'); // місце - куди вставляємо
-   img_in_li.insertAdjacentElement('afterBegin',imageEl); // що вставляємо
-};
-console.log('titleEl', titleEl[0]); // beforeEnd afterBegin
